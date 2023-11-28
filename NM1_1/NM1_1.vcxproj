@@ -132,8 +132,8 @@
   <ItemGroup>
     <Text Include="acc_test.txt" />
     <Text Include="data.txt" />
+    <Text Include="randomData.txt" />
     <Text Include="randomSystemResult.txt" />
-    <Text Include="randomSystemTest.txt" />
     <Text Include="res.txt" />
     <Text Include="resultSystem.txt" />
   </ItemGroup>

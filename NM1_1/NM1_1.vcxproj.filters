@@ -32,11 +32,9 @@
     <Text Include="resultSystem.txt">
       <Filter>Source Files</Filter>
     </Text>
-    <Text Include="randomSystemTest.txt">
+    <Text Include="randomData.txt">
       <Filter>Source Files</Filter>
     </Text>
-    <Text Include="randomSystemResult.txt">
-      <Filter>Source Files</Filter>
-    </Text>
+    <Text Include="randomSystemResult.txt" />
   </ItemGroup>
 </Project>
