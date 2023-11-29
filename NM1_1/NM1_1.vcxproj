@@ -130,11 +130,9 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="acc_test.txt" />
     <Text Include="data.txt" />
     <Text Include="randomData.txt" />
     <Text Include="randomSystemResult.txt" />
-    <Text Include="res.txt" />
     <Text Include="resultSystem.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

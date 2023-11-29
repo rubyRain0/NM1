@@ -20,12 +20,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="res.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="acc_test.txt">
-      <Filter>Source Files</Filter>
-    </Text>
     <Text Include="data.txt">
       <Filter>Source Files</Filter>
     </Text>
