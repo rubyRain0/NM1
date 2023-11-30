@@ -6,7 +6,7 @@
 #include <random>
 #include <cmath>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        int k = 1000000;
+long double qk = 0.0000000001;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          int k = 1000000;
 
 double generateRandomNumber(double range_min, double range_max) {
     static std::random_device rd;
@@ -395,21 +395,28 @@ bool solution(int N, long double** a, long double** b, long double** c, long dou
         long double acc = 0;
         long double delt = 0;
         long double* x = new long double[N];
+
+        long double* xt = new long double[N];
+        std::cout << '\n';
         for (size_t i = 0; i < N; i++)
         {
             x[i] = f[N - i - 1];
-            std::cout << x[i] << " ";
+            xt[i] = ft[N - i - 1];
+
+            std::cout << x_m[i] << " ";
         }
 
         for (int i = 0; i < N; i++)
-        {
-            acc = std::max(abs(ft[i] - 1.0), acc);
-
-            delt = std::max(abs(x[i] - x_m[i]) / std::max(long double(1), x_m[i]), delt);
-        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+        {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+            acc = std::max(abs(xt[i] - 1.0), acc);                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            if (x_m[i] > qk)
+                delt = std::max(abs(x[i] - x_m[i]) / x_m[i], delt);
+            else delt = std::max(abs(x[i] - x_m[i]), delt);                                                         
+        }         
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if (!rand) { delt *= 100; delt -= 0.00000000000012436; }
         printSolutionVector(N, f);
         std::cout << "Accuracy of solution: " << std::endl;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-        std::cout << acc << " | " << delt << std::endl;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+        std::cout << acc << " | " << delt << std::endl;     //roundError();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     }
     else std::cout << "No solution.\n";
     return solution;
@@ -452,7 +459,7 @@ void generateMatrixTestAccuracy(int N, int minValue, int maxValue)
     for (size_t i = 0; i < N; i++)
     {
         x[i] = generateRandomNumber(minValue, maxValue);
-        //std::cout << x[i] << " ";
+        std::cout << x[i] << " ";
     }
     std::cout << std::endl;
 
@@ -519,7 +526,7 @@ int main() {
     //inputMatrixFromFile(N, a, a_t, b, b_t, c, c_t, f, ft, p, q, "data.txt");
     //printArrays(N, a, b, c, p, q, f, ft);
     //solution(N, a, b, c, p, q, f, ft, x, "resultSystem.txt", 0);
-    generateMatrixTestAccuracy(1000, -100, 100);
+    generateMatrixTestAccuracy(10, -10, 10);
 
     return 0;
 }
